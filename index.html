@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ERP — إدارة المنتجات</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="wrap">
+
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand__mark">V</span>
+        <div>
+          <h1>Product <span>Vault</span></h1>
+          <p>نظام إدارة منتجات — CRUD + localStorage</p>
+        </div>
+      </div>
+      <div class="stats">
+        <div class="stat">
+          <span class="stat__num" id="statCount">0</span>
+          <span class="stat__label">منتج</span>
+        </div>
+        <div class="stat">
+          <span class="stat__num" id="statValue">0</span>
+          <span class="stat__label">قيمة المخزون</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="layout">
+
+      <aside class="sidebar">
+        <h2 class="sidebar__title">التصنيفات</h2>
+        <ul id="categoryNav" class="category-nav">
+          <li class="category-item active" data-category="all">الكل</li>
+          <li class="category-item" data-category="إلكترونيات">إلكترونيات</li>
+          <li class="category-item" data-category="ملابس">ملابس</li>
+          <li class="category-item" data-category="أغذية">أغذية</li>
+          <li class="category-item" data-category="أدوات منزلية">أدوات منزلية</li>
+          <li class="category-item" data-category="أخرى">أخرى</li>
+        </ul>
+      </aside>
+
+      <div class="main">
+
+        <section class="panel">
+          <form id="productForm" class="form">
+            <div class="field">
+              <label for="nameInput">اسم المنتج</label>
+              <input type="text" id="nameInput" placeholder="مثال: Laptop" required>
+            </div>
+            <div class="field">
+              <label for="categoryInput">التصنيف</label>
+              <select id="categoryInput" required>
+                <option value="" disabled selected>اختر تصنيف</option>
+                <option value="إلكترونيات">إلكترونيات</option>
+                <option value="ملابس">ملابس</option>
+                <option value="أغذية">أغذية</option>
+                <option value="أدوات منزلية">أدوات منزلية</option>
+                <option value="أخرى">أخرى</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="priceInput">السعر</label>
+              <input type="number" id="priceInput" placeholder="0" min="0" required>
+            </div>
+            <div class="field">
+              <label for="quantityInput">الكمية</label>
+              <input type="number" id="quantityInput" placeholder="0" min="0" required>
+            </div>
+            <button type="submit" id="submitBtn" class="btn-submit">إضافة المنتج</button>
+          </form>
+        </section>
+
+        <section class="panel">
+          <div class="list-toolbar">
+            <input type="text" id="searchInput" placeholder="ابحث باسم المنتج..." class="search-input">
+          </div>
+          <div class="list-head">
+            <span>المنتج</span>
+            <span>التصنيف</span>
+            <span>السعر</span>
+            <span>الكمية</span>
+            <span></span>
+          </div>
+          <ul id="productList" class="product-list"></ul>
+          <p id="emptyState" class="empty-state">لسه مفيش منتجات مضافة</p>
+        </section>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
